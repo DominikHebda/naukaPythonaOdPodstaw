@@ -113,3 +113,49 @@ sample_set = {"Żółty", "Pomarańczowy", "Czarny"}
 sample_list = ["Niebieski", "Zielony", "Czerwony"]
 sample_set.update(sample_list)
 print(sample_set)
+
+# Next excercise
+
+nl = []
+for x in range(1500, 2701):
+    if x % 7 == 0 and x % 5 == 0:
+        nl.append(str(x))
+print(nl)
+
+
+#ndx = []
+#x = input("Podaj pierwszą liczbe:")
+#for x in range(2, x <= x):
+#    if x % 2 == 0:
+#        ndx.append(int(x))
+#print(ndx)
+
+
+#ndy = []
+#y = input("Podaj pierwszą liczbe:")
+#for y in range(2, y <= y):
+#    if y % 2 == 0:
+#        ndy.append(int(y))
+#print(ndy)
+
+
+row = 5
+for i in range(1, row +1):
+    for j in range(1, i +1):
+        print(j, end='')
+
+    print()
+
+
+s = 0
+n = int(input("Podaj liczbę:"))
+for n in range(0, n + 1):
+    s += i
+print("\n")
+print("Suma to:", s)
+
+n = int(input("Podaj liczbę:"))
+x = sum(range(0, n + 1))
+print("\n")
+print("Suma to:", s)
+
