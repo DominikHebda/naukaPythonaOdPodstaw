@@ -1,117 +1,91 @@
-while True:
-    try:
-        num1 = int(input('Liczba 1:'))
-        num2 = int(input('Liczba 2:'))
-        print(f'Suma to: {num1+num2}')
-        break
-    except ValueError:
-        print('Wprowadź dane liczbowe')
+fo = open("text.txt", "r")
+print("Nazwa pliku:", fo.name)
+
+line = fo.readline()
+print("Czytaj linię: >" + line + "<")
+
+# Ponownie ustaw wskaźnik na początek
+fo.seek(0, 0)  # f.seek(0)
+line = fo.readline()
+print("Czytaj linię: >" + line + "<")
+
+fo.seek(0, 0)  # f.seek(0)
+
+# Otwórz plik
+f = open("text.txt", "r")
+print("Nazwa pliku: ", f.name)
+
+# Uzyskaj aktualną pozycję pliku.
+pos = f.tell()
+print("Aktualna pozycja: " + str(pos))
+
+line = f.readline()
+print("Czytaj linię: >" + line + "<")
+
+# Uzyskaj aktualną pozycję pliku.
+pos = f.tell()
+print("Aktualna pozycja: " + str(pos))
+
+# Zamknij otwarty plik
+f.close()
+
+
+import os
+os.system('dir')
+
+
+txt = open("text.txt")
+print(txt.read())
+txt.close()
+
+
+def file_readlines(file_name):
+    with open(file_name, encoding="UTF-8") as new_file:
+        content_list = new_file.readlines()
+        return content_list
+
+print(file_readlines("text.txt"))
 
 
 
-a = 5
-b = 0
-try:
-    result = a / b
-except ZeroDivisionError:
-    result = "Nie możesz podzielić przez 0"
-
-print(result)
+def write_readline(file_name, lista):
+    file = open(file_name, "w")
+    for line in lista:
+        file.write(str(line + "\n"))
+color = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
 
 
-a = [1, 2, 5]
-try:
-    print(a[3])
-except IndexError:
-    pass
+write_readline("text.txt", color)
 
 
-text = 'abc2'
-try:
-    msg = text + 5
-except TypeError:
-    msg = "Nie możesz dodać int do str"
-
-print(msg)
-
-
-list = [2, 3, 4]
-
-try:
-    msg = list[5]
-except IndexError as error:
-    msg = "Jesteś poza zakresem listy (" + str(error) + ")"
-print(msg)
+def longest_word(filename):
+    max_word = ""
+    with open(filename, "r") as file:
+        words = file.read().split()
+    for word in words:
+        if len(word) > len(max_word):
+            max_word = word
+    return word
 
 
-a = int(input('Podaj pierwszą liczbę:'))
-b = int(input('Podaj drugą liczbę:'))
-
-
-def division(a, b):
-    try:
-       divide = a / b
-    except ZeroDivisionError as e:
-        print(f"Wystąpił błąd:{e}")
-    else:
-        print(f"Wynik dzielenia to: {divide}")
-
-
-print(division(a, b))
-
-z = int(input("Podaj cenę netto:"))
-v = 1.23
-
-
-def multiply_Vat(z, v):
-    try:
-        if z <= 0:
-            raise ValueError("Cena nie może być ujemna!")
-        multiply = z * v
-        print(f"Cena brutto: {multiply} zł")
-    except ValueError as e:
-        print(f"Wystąpił błąd: {e}")
-    finally:
-        print("Obliczenie zakończone")
-
-multiply_Vat(z, v)
-
-
-c = int(input('Podaj pierwszą liczbę:'))
-d = int(input('Podaj drugą liczbę:'))
-
-
-def division(a, b):
-    try:
-       divide = c / d
-    except ZeroDivisionError as e:
-        print(f"Wystąpił błąd:{e}")
-    else:
-        print(f"Wynik dzielenia to: {divide}")
-    finally:
-        print("obliczenie zakończone")
-
-
-print(division(c, d))
-
-
-def process_sensor_data(value_s, type_s):
-    try:
-        if not isinstance(value_s, (int, float)):
-            raise TypeError ("Wartość musi być liczbą")
-        if type_s not in ["temperatura", "ciśnienie", "wilgotność"]:
-            raise ValueError ("Nieznany typ sensora")
-    except Exception as e:
-        print((f"Wartość musi być liczbą: {e}"))
-    else:
-        print(f"Wartość sensora to: {value_s}, Typ sensora to: {type_s}")
-    finally:
-        print("Przetwarzanie zakończone")
-
-
-process_sensor_data(25.5, "temperatura")
-process_sensor_data("niepr", "ciśnienie")
-process_sensor_data(1010.5, 'Niezna')
+print(longest_word("text.txt"))
 
 
 
+l = 0
+with open("text.txt") as f:
+    for i in f:
+        l += 1
+print("Liczba wierszy w pliku:", l)
+
+
+with open('abc.txt', 'a') as myfile:
+    myfile.write("Ćwiczenia z Pythona\n")
+with open('abc.txt', 'r') as myfile:
+    print(myfile.read())
+
+
+
+import os
+statinfo = os.stat('text.txt')
+print("Statystyka zwykłego pliku: ", statinfo)
