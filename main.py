@@ -119,3 +119,155 @@ odd_ctr = len(list(filter(lambda x: x % 2 != 0, array_nums)))
 even_ctr = len(list(filter(lambda x: x % 2 == 0, array_nums)))
 print("\nLiczba liczb parzystych w powyższej tablicy: ", even_ctr)
 print("\nLiczba liczb nieparzystych w powyższej tablicy: ", odd_ctr)
+
+
+
+weekdays = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela']
+print("Orginalna lista:")
+print(weekdays)
+six_lenght = filter(lambda x: len(x) == 6, weekdays)
+print(six_lenght)
+for d in six_lenght:
+    print(d)
+
+
+
+nums = [19, 65, 57, 39, 152, 639, 121, 44, 90, 190]
+print("Orginalna lista:")
+print(nums)
+divide_19_13 = list(filter(lambda divide: divide % 19 == 0 or divide % 13 == 0, nums))
+print(divide_19_13)
+
+
+
+nums = [19, 65, 57, 39, 152, 639, 121, 44, 90, 190]
+print("Oryginalna lista:")
+print(nums)
+result = list(filter(lambda x: x % 19 == 0 or x % 13 == 0, nums))
+print("\nLiczby z poniższej listy są podzielne przez 19 lub 13:")
+print(result)
+
+
+
+texts = ["php", "w3r", "Python", "abcd", "Java", "aaa"]
+print("Oryginalna lista:")
+print(texts)
+answer = list(filter(lambda p: p == p[::-1], texts))
+print(answer)
+
+
+
+sample_names = ['antoni', 'Jakub', 'zuzanna', 'Julia', 'Jan', 'szymon']
+print("Oryginalna lista:")
+print(sample_names)
+names = list(filter(lambda n: n[0].isupper() and n[1:].islower(), sample_names))
+print(names)
+print(len(''.join(names)))
+
+
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print("Oryginalna lista:")
+print(nums)
+squares = list(map(lambda x: x ** 2, nums))
+cubes = list(map(lambda x: x ** 3, nums))
+print("Lista kwadratów:")
+print(squares)
+print("Lista sześcianów:")
+print(cubes)
+
+
+
+nums2 = [2, 4, 6, 9, 11]
+n = 2
+print("Oryginalna lista:")
+print(nums2)
+multiple_list = list(map(lambda x: x * n, nums2))
+print("Wymnożona lista:")
+print(multiple_list)
+
+
+nums = [2, 4, 6, 9, 11]
+n = 2
+print("Oryginalna lista:", nums)
+print("Podana liczba:", n)
+filtered_numbers = list(map(lambda number: number * n, nums))
+print("Wynik jako list:", filtered_numbers)
+filtered_numbers_spaces = '  '.join(map(str, filtered_numbers))
+print("Wynik jako str:", filtered_numbers_spaces)
+
+
+nums1 = [1, 2, 3]
+nums2 = [4, 5, 6]
+print("Oryginalna lista:", nums1)
+print("Oryginalna druga lista:", nums2)
+concat_list = list(map(lambda x, y: x + y ,nums2, nums1))
+print("Zsumowana lista")
+print(concat_list)
+
+
+
+nums1 = [1, 2, 3]
+nums2 = [4, 5, 6]
+print("Oryginalna lista:")
+print(nums1)
+print(nums2)
+result = map(lambda x, y: x + y, nums1, nums2)
+print("\nWynik: po dodaniu dwóch list")
+print(list(result))
+
+
+from functools import reduce
+nums = [2, 4, -6, -9, 11, -12, 14, -5, 17]
+print("Oryginalna lista:")
+print(nums)
+del_positiv = list(filter(lambda x: x < 0, nums))
+print("Lista liczb ujemnych:")
+print(del_positiv)
+print("wartość bezwzględna z sumowanej tablicy liczb ujemnych:")
+print(abs(reduce(lambda x, y: x + y, del_positiv)))
+
+
+
+
+nums = [2, 4, -6, -9, 11, -12, 14, -5, 17]
+print("Oryginalna lista: ", nums)
+print("Wynik:")
+print(abs(sum([i for i in nums if i < 0])))
+
+
+
+array_nums = [-1, 2, -3, 5, 7, 8, 9, -10]
+print("Oryginalna lista: ", array_nums)
+print("Posortowana lista: ", sorted(array_nums))
+
+
+
+array_nums = [-1, 2, -3, 5, 7, 8, 9, -10]
+print("Oryginalna tablica:")
+print(array_nums)
+result = [x for x in array_nums if x < 0] + [x for x in array_nums if x >= 0]
+print("\nZmiana kolejności liczb dodatnich i ujemnych wspomnianej tablicy:")
+print(result)
+
+
+
+str1 = "sdf 23 safs8 5 sdfsd8 sdfs 56 21sfs 20 5"
+print("Oryginalny ciąg znaków:")
+print(str1)
+str_num = str1.split()
+print("Oryginalna lista: ", str_num)
+result = sorted([int(x) for x in str_num if x.isdigit()])
+print("Tylko liczby:")
+print(result)
+
+
+str1 = "sdf 23 safs8 5 sdfsd8 sdfs 56 21sfs 20 5"
+print("Oryginalny ciąg: ", str1)
+str_num = str1.split()
+print("Oryginalna lista: ", str_num)
+numbers = sorted([int(x) for x in str_num if x.isdigit()])
+print('Liczby w posortowanej formie:')
+for i in numbers:
+    print(i, end=' ')
+
